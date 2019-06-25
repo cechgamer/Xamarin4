@@ -1,4 +1,7 @@
-﻿using System;
+﻿using app.ViewModels;
+using app.Views;
+using Paises.ViewModels;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -11,7 +14,10 @@ namespace app
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            var mainViewModel = MainViewModel.GetInstance();	//cambiar
+            mainViewModel.Lands = new PaisViewModel();	//cambiar
+
+            this.MainPage = new NavigationPage(new PaisPage());
         }
 
         protected override void OnStart()
@@ -30,3 +36,4 @@ namespace app
         }
     }
 }
+
